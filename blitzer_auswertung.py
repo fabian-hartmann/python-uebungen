@@ -1,65 +1,65 @@
+# Übungsskript: Auswertung gemessener Geschwindigkeiten gegen eine Höchstgeschwindigkeit mit Einteilung in Überschreitungsklassen
+
 print("Auswertung Start")
 messwerte = []  # in km/h
-a = 0   #"Klasse 1"
-b = 0   #"Klasse 2"
-c = 0   #"Klasse 3"
+klasse_1 = 0
+klasse_2 = 0
+klasse_3 = 0
 
 while True:
-    grenzwert = input('Grenzwert eingeben:').replace(",", ".")
+    grenzwert = input("Grenzwert in km/h eingeben:").replace(",", ".")
     try:
-       grenzwert=float(grenzwert)
+        grenzwert = float(grenzwert)
     except ValueError:
-        print("keine Zahl")
+        print("Keine Zahl")
         print("Korrekten Wert eingeben")
     else:
         if grenzwert <= 0:
             print("Grenzwert muss größer 0 sein")
         else:
-            print("Festgelegter Grenzwert:",grenzwert)
+            print("Festgelegter Grenzwert:", grenzwert)
             break
 
 while True:
-    wert = input("messwerte eingeben:").replace(",", ".")
+    wert = input("Messwerte in km/h eingeben:").replace(",", ".")
     if wert == "":
         break
     else:
         try:
             wert = float(wert)
         except ValueError:
-            print("keine Zahl")
+            print("Keine Zahl")
             print("Korrekten Wert eingeben")
         else:
-            if  wert >= 0:
+            if wert >= 0:
                 messwerte.append(wert)
             else:
-                print("keine negativen Werte")
+                print("Keine negativen Werte")
 
-print("Messwerte: ",messwerte)
-
-for wert in messwerte:
-    if wert >= grenzwert + 10: #Klasse 3
-        print("Klasse 3: ",wert)
-        c = c + 1
-    elif wert >= grenzwert + 5:  #Klasse 2
-        print("Klasse 2: ",wert)
-        b = b + 1
-    elif wert > grenzwert: #Klasse 1
-        print("Klasse 1: ",wert)
-        a = a + 1
-    else:
-        print(wert," - OK")
-
-if len(messwerte)==0:
-    print("keine Auswertung möglich")
+if len(messwerte) == 0:
+    print("Keine Auswertung möglich")
 else:
-    print("Alle Messwerte Ausgewertet")
-    if a > 0 or b > 0 or c > 0:
-        r = a + b + c  # Gesamtüberschreitungen
-        print("Klasse 1: ",a)
-        print("Klasse 2: ",b)
-        print("Klasse 3: ",c)
-        print("Gesamtüberschreitungen: ",r)
+    print("Messwerte: ", messwerte)
+    for wert in messwerte:
+        if wert >= grenzwert + 10:
+            print("Klasse 3: ", wert, "km/h")
+            klasse_3 = klasse_3 + 1
+        elif wert >= grenzwert + 5:
+            print("Klasse 2: ", wert, "km/h")
+            klasse_2 = klasse_2 + 1
+        elif wert > grenzwert:
+            print("Klasse 1: ", wert, "km/h")
+            klasse_1 = klasse_1 + 1
+        else:
+            print(wert, "km/h", " - OK")
+
+    gesamt_ueberschreitungen = klasse_1 + klasse_2 + klasse_3
+    if gesamt_ueberschreitungen > 0:
+        print("Klasse 1 - bis unter 5 km/h zu schnell: ", klasse_1)
+        print("Klasse 2 - 5 bis unter 10 km/h zu schnell: ", klasse_2)
+        print("Klasse 3 - ab 10 km/h zu schnell: ", klasse_3)
+        print("Gesamtüberschreitungen: ", gesamt_ueberschreitungen)
     else:
-        print("keine Geschwindigkeitsüberschreitung erfasst")
+        print("Keine Geschwindigkeitsüberschreitung erfasst")
 
 print("Auswertung beendet")
