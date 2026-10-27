@@ -15,7 +15,7 @@ Aufbau Skript:
 - Es folgt die Ausgabe, ob der Abzug sicher oder unsicher ist.
 
 ### blitzer_auswertung.py
-Diese Übung dient dazu, Geschwindigkeitsmessungen gegen einen Höchstgeschwindigkeit auszuwerten.
+Diese Übung dient dazu, Geschwindigkeitsmessungen gegen eine Höchstgeschwindigkeit auszuwerten.
 
 Aufbau Skript:
 - Es startet mit der Eingabe des Grenzwerts und der Messwerte. 
