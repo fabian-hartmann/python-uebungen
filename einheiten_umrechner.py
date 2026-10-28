@@ -19,12 +19,15 @@ def celsius_zu_kelvin(temp_c):
 print("Umrechnungen Start")
 
 # Umrechnung km/h in m/s
-print("Geschwindigkeit umgerechnet:", "10 km/h =", round(kmh_zu_ms(10), 2), "m/s")
+kmh = 80
+print(f"Geschwindigkeit umgerechnet: {kmh} km/h = {kmh_zu_ms(kmh):.2f} m/s")
 
 # Umrechnung bar in pa
-print("Druck umgerechnet:", "1 bar =", bar_zu_pa(1), "Pa")
+bar = 3
+print(f"Druck umgerechnet: {bar} bar = {bar_zu_pa(bar):.0f} Pa")
 
 # Umrechnung °C in K
-print("Temperatur umgerechnet:", "30 °C =", celsius_zu_kelvin(30), "K")
+temp_c = 30
+print(f"Temperatur umgerechnet: {temp_c} °C = {celsius_zu_kelvin(temp_c):.2f} K")
 
 print("Umrechnungen Ende")
